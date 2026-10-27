@@ -1,0 +1,68 @@
+> Act as an Expert React Full-Stack Developer. I want to build a real-time Data Structure and Algorithm Visualizer web application. We will build this step-by-step to ensure modularity and clean code.
+> **Project Constraints & Tech Stack:**
+> * **Frontend:** React (functional components, hooks)
+> * **Styling:** Tailwind CSS
+> * **Animations:** Framer Motion (crucial for smooth `layout` transitions when elements swap)
+> * **State Management:** React `useState` and `useEffect`
+> * **No Backend/Login:** Everything runs on the client.
+> 
+> 
+> **User Flow to Replicate:**
+> 1. User lands on the site (no login required).
+> 2. User sees a dashboard with algorithm categories (Sorting, Graphs, etc.).
+> 3. User selects an algorithm (e.g., Bubble Sort).
+> 4. User uses a control panel to provide input:
+> * Set number of elements.
+> * Enter custom elements manually (comma-separated string).
+> * Or click a "Randomize" button with min/max limits.
+> 
+> 
+> 5. User clicks "Start" and the animation plays in real-time, pausing at each step to show comparisons and swaps visually.
+> 6. The UI displays the Time Complexity and Space Complexity for the chosen algorithm.
+> 
+> 
+> Please write the code for this project in the following sequential phases. Wait for my confirmation to proceed to the next phase after delivering each one.
+> ### Phase 1: Project Setup & Global State
+> 
+> 
+> * Provide the standard setup commands (e.g., Vite + React + Tailwind + Framer Motion).
+> * Create the main App structure and layout.
+> * Set up the global state variables in the main component: the main `array` state, `isSorting` boolean, `animationSpeed`, and the `selectedAlgorithm`.
+> 
+> 
+> ### Phase 2: The Control Panel Component
+> 
+> 
+> * Create a `<ControlPanel/>` component.
+> * Include an input field that accepts comma-separated values (e.g., "5, 12, 3, 8") and parses them into the array state.
+> * Include a slider for the number of elements (e.g., 5 to 100).
+> * Include a "Generate Random Array" button.
+> * Include a speed slider to adjust the delay between animation frames.
+> * Include Start/Reset buttons.
+> 
+> 
+> ### Phase 3: The Visualization Canvas & Framer Motion
+> 
+> 
+> * Create a `<VisualizerCanvas/>` component.
+> * Map through the `array` state and render vertical bars for sorting.
+> * **Crucial:** Wrap the bars in Framer Motion's `<motion.div>` using the `layout` prop so they smoothly glide into their new positions when the array state changes, rather than instantly snapping.
+> * Accept a `currentIndices` prop to highlight the bars currently being compared (e.g., turn them red).
+> 
+> 
+> ### Phase 4: The Sorting Engine & Bubble Sort Implementation
+> 
+> 
+> * Create an asynchronous utility function `sleep(ms)` to handle the pauses.
+> * Implement the `bubbleSort` function.
+> * The function must modify a copy of the array, call `setArray`, update `currentIndices` to highlight the compared elements, and `await sleep(speed)` inside the loops so the UI updates in real-time.
+> 
+> 
+> ### Phase 5: Information Panel (Complexity Display)
+> 
+> 
+> * Create a `<ComplexityPanel/>` component.
+> * Based on the `selectedAlgorithm` state, display the Time Complexity (Worst, Average, Best) using proper math notation (e.g., $O(n^2)$ or $O(n \log n)$) and Space Complexity.
+> 
+> 
+> **To start:** Acknowledge these instructions and provide the code for **Phase 1** and **Phase 2**. Include clear comments explaining how the comma-separated manual input is parsed.
